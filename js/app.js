@@ -6,6 +6,12 @@ function adicionar() {
     let nomeProduto = produto.split('-')[0];
     let valorUnitario = produto.split('R$')[1];
     let qtd = document.getElementById('quantidade').value;
+    
+    if (isNaN(qtd) || qtd <= 0) {
+        alert('Informe a quantidade desejada');
+        return;
+    }
+
     let subtotal = qtd * valorUnitario;
     let carrinho = document.getElementById('lista-produtos');
     carrinho.innerHTML = carrinho.innerHTML + `<section class="carrinho__produtos__produto">
